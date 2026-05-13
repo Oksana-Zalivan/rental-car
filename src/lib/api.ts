@@ -5,14 +5,14 @@ export const rentalCarApi = axios.create({
   baseURL: "https://car-rental-api.goit.global",
 });
 
-type FetchCarsResponse = {
+export type FetchCarsResponse = {
   cars: Car[];
   totalCars: number;
   page: number;
   totalPages: number;
 };
 
-type FetchCarsParams = {
+export type FetchCarsParams = {
   page?: number;
   brand?: string;
   rentalPrice?: string;
@@ -29,6 +29,12 @@ export async function fetchCars(
       limit: 12,
     },
   });
+
+  return response.data;
+}
+
+export async function fetchBrands(): Promise<string[]> {
+  const response = await rentalCarApi.get("/brands");
 
   return response.data;
 }

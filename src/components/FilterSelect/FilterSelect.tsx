@@ -1,0 +1,91 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import styles from "./FilterSelect.module.css";
+
+type FilterSelectProps = {
+  label: string;
+  placeholder: string;
+  options: string[];
+  value: string;
+  onChange: (value: string) => void;
+  width?: number;
+};
+
+export default function FilterSelect({
+  label,
+  placeholder,
+  options,
+  value,
+  onChange,
+  width = 204,
+}: FilterSelectProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const selectRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        selectRef.current &&
+        !selectRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleSelect = (option: string) => {
+    onChange(option);
+    setIsOpen(false);
+  };
+
+  return (
+    <div className={styles.field}>
+      <label className={styles.label}>{label}</label>
+
+      <div
+        className={styles.wrapper}
+        style={{ width: `${width}px` }}
+        ref={selectRef}
+      >
+        <button
+          type="button"
+          className={styles.selectButton}
+          onClick={() => setIsOpen((prev) => !prev)}
+        >
+          <span className={styles.value}>{value || placeholder}</span>
+
+          <svg className={styles.icon}>
+            <use
+              href={
+                isOpen ? "/sprite.svg#icon-arrow-up" : "/sprite.svg#icon-arrow"
+              }
+            />
+          </svg>
+        </button>
+
+        {isOpen && (
+          <ul className={styles.dropdown}>
+            {options.map((option) => (
+              <li key={option}>
+                <button
+                  type="button"
+                  className={styles.option}
+                  onClick={() => handleSelect(option)}
+                >
+                  {option}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+}

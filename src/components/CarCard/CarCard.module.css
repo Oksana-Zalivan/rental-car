@@ -1,0 +1,127 @@
+.card {
+  width: 276px;
+  display: flex;
+  flex-direction: column;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 276px;
+  height: 268px;
+  overflow: hidden;
+  border-radius: 14px;
+  margin-bottom: 12px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.favoriteBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heartIcon {
+  width: 16px;
+  height: 16px;
+  fill: #ffffff;
+  transition: fill 250ms ease;
+}
+
+.favoriteBtn:hover .heartIcon {
+  fill: #3470ff;
+}
+
+.info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+
+.model {
+  color: #3470ff;
+}
+
+.price {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 28px;
+}
+
+.detail {
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #8d929a;
+  display: flex;
+  align-items: center;
+}
+
+.separator {
+  color: #dadde1;
+  opacity: 0.7;
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 16px;
+  stroke-width: 1px;
+}
+
+.button {
+  margin-top: auto;
+  width: 276px;
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  background-color: #3470ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 250ms ease;
+}
+
+.button:hover {
+  background-color: #0b44cd;
+}
