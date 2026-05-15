@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+
 import { Car } from "@/types/car";
 import styles from "./CarCard.module.css";
 
@@ -12,9 +14,8 @@ type CarCardProps = {
 export default function CarCard({ car }: CarCardProps) {
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const addressParts = car.address.split(", ");
-  const city = addressParts[1];
-  const country = addressParts[2];
+  const city = car.location.city;
+  const country = car.location.country;
 
   const toggleFavorite = () => {
     setIsFavorite((prev) => !prev);
@@ -23,9 +24,11 @@ export default function CarCard({ car }: CarCardProps) {
   return (
     <li className={styles.card}>
       <div className={styles.imageWrapper}>
-        <img
+        <Image
           src={car.img}
           alt={`${car.brand} ${car.model}`}
+          width={276}
+          height={268}
           className={styles.image}
         />
 

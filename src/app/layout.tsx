@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
+import { Toaster } from "react-hot-toast";
+
 import "./globals.css";
 import Providers from "@/providers/Providers";
 import Header from "@/components/Header/Header";
@@ -23,10 +25,11 @@ export default function RootLayout({
 }: Readonly<RootLayoutProps>) {
   return (
     <html lang="en">
-      <body>
+      <body className={manrope.className}>
         <Providers>
           <Header />
           {children}
+          <Toaster position="top-right" />
         </Providers>
       </body>
     </html>

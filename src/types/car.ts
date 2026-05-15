@@ -8,11 +8,14 @@ export type Car = {
   description: string;
   fuelConsumption: string;
   engineSize: string;
-  accessories: string[];
-  functionalities: string[];
+  features: string[];
   rentalPrice: string;
   rentalCompany: string;
-  address: string;
+  location: {
+    country: string;
+    city: string;
+    address: string;
+  };
   rentalConditions: string[];
   mileage: number;
 };

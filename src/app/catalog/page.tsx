@@ -19,7 +19,7 @@ export default function CatalogPage() {
 
   const [activeFilters, setActiveFilters] = useState({
     brand: "",
-    rentalPrice: "",
+    price: "",
     minMileage: "",
     maxMileage: "",
   });
@@ -42,7 +42,7 @@ export default function CatalogPage() {
       fetchCars({
         page: pageParam,
         brand: activeFilters.brand || undefined,
-        rentalPrice: activeFilters.rentalPrice || undefined,
+        price: activeFilters.price || undefined,
         minMileage: activeFilters.minMileage || undefined,
         maxMileage: activeFilters.maxMileage || undefined,
       }),
@@ -61,7 +61,7 @@ export default function CatalogPage() {
 
     setActiveFilters({
       brand,
-      rentalPrice: price,
+      price,
       minMileage,
       maxMileage,
     });
