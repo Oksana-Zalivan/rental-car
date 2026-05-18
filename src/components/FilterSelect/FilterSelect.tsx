@@ -10,6 +10,7 @@ type FilterSelectProps = {
   value: string;
   onChange: (value: string) => void;
   width?: number;
+  dropdownHeight?: number;
 };
 
 export default function FilterSelect({
@@ -19,6 +20,7 @@ export default function FilterSelect({
   value,
   onChange,
   width = 204,
+  dropdownHeight = 272,
 }: FilterSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
@@ -71,18 +73,27 @@ export default function FilterSelect({
         </button>
 
         {isOpen && (
-          <ul className={styles.dropdown}>
-            {options.map((option) => (
-              <li key={option}>
-                <button
-                  type="button"
-                  className={styles.option}
-                  onClick={() => handleSelect(option)}
-                >
-                  {option}
-                </button>
-              </li>
-            ))}
+          <ul
+            className={styles.dropdown}
+            style={{ maxHeight: `${dropdownHeight}px` }}
+          >
+            {options.map((option) => {
+              const isSelected = value === option;
+
+              return (
+                <li key={option}>
+                  <button
+                    type="button"
+                    className={`${styles.option} ${
+                      isSelected ? styles.selectedOption : ""
+                    }`}
+                    onClick={() => handleSelect(option)}
+                  >
+                    {option}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         )}
       </div>

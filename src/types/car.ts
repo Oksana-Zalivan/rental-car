@@ -7,7 +7,7 @@ export type Car = {
   img: string;
   description: string;
   fuelConsumption: string;
-  engineSize: string;
+  engine: string;
   features: string[];
   rentalPrice: string;
   rentalCompany: string;

@@ -8,7 +8,7 @@
     url("/images/Hero image.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -16,12 +16,13 @@
 }
 
 .content {
+  width: 100%;
+  max-width: 783px;
   text-align: center;
   color: #ffffff;
 }
 
 .title {
-  font-family: "Manrope", sans-serif;
   font-weight: 700;
   font-size: 60px;
   line-height: 1.2;
@@ -29,7 +30,6 @@
 }
 
 .text {
-  font-family: "Manrope", sans-serif;
   font-weight: 600;
   font-size: 24px;
   line-height: 1.333;
@@ -43,15 +43,20 @@
   min-width: 276px;
   height: 44px;
   border-radius: 12px;
-  background-color: #3470ff;
+  background-color: #00aad4;
   color: #ffffff;
-  font-family: "Manrope", sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 1.25;
   transition: background-color 0.3s ease;
 }
 
-.button:hover {
-  background-color: #0b44cd;
+.button:hover,
+.button:focus-visible  {
+  background-color: #0095ba;
+}
+
+.button:focus-visible {
+  outline: 2px solid #101828;
+  outline-offset: 3px;
 }

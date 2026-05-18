@@ -1,10 +1,12 @@
 .page {
   padding: 84px 0 104px;
   background-color: #f7f7f7;
+  overflow-x: hidden;
 }
 
 .container {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   gap: 32px;
@@ -33,7 +35,6 @@
 
 .formTitle {
   margin-bottom: 8px;
-  font-family: "Manrope", sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 1.2;
@@ -42,7 +43,6 @@
 
 .formText {
   margin-bottom: 24px;
-  font-family: "Manrope", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
@@ -57,7 +57,6 @@
   background-color: #f7f7f7;
   padding: 12px 20px;
   outline: none;
-  font-family: "Manrope", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
@@ -87,7 +86,6 @@
   border-radius: 12px;
   background-color: #00aad4;
   cursor: pointer;
-  font-family: "Manrope", sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 1.25;
@@ -104,21 +102,21 @@
 
 .titleRow {
   display: flex;
-  align-items: baseline;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 16px;
   margin-bottom: 8px;
 }
 
 .title {
-  font-family: "Manrope", sans-serif;
   font-weight: 600;
   font-size: 24px;
   line-height: 1.33;
   color: #101828;
+  flex: 1;
 }
 
 .article {
-  font-family: "Manrope", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
@@ -127,7 +125,9 @@
 
 .location {
   margin-bottom: 16px;
-  font-family: "Manrope", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 4px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
@@ -136,7 +136,6 @@
 
 .price {
   margin-bottom: 32px;
-  font-family: "Manrope", sans-serif;
   font-weight: 600;
   font-size: 24px;
   line-height: 1.33;
@@ -145,7 +144,6 @@
 
 .description {
   margin-bottom: 68px;
-  font-family: "Manrope", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
@@ -166,7 +164,6 @@
 
 .sectionTitle {
   margin-bottom: 20px;
-  font-family: "Manrope", sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 1.2;
@@ -183,21 +180,15 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: "Manrope", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
   color: #101828;
 }
 
-.item::before {
-  content: "✓";
+.icon {
   width: 16px;
   height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #101828;
-  border-radius: 50%;
-  font-size: 10px;
+  flex-shrink: 0;
+  fill: currentColor;
 }

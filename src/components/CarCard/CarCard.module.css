@@ -1,16 +1,20 @@
 .card {
   width: 276px;
+  min-height: 464px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
 }
 
 .imageWrapper {
   position: relative;
-  width: 276px;
+  width: 244px;
   height: 268px;
   overflow: hidden;
   border-radius: 14px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .image {
@@ -39,8 +43,9 @@
   transition: fill 250ms ease;
 }
 
-.favoriteBtn:hover .heartIcon {
-  fill: #3470ff;
+.favoriteBtn:hover .heartIcon,
+.favoriteBtn:focus .heartIcon {
+  fill: #00aad4;
 }
 
 .info {
@@ -53,11 +58,12 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 8px;
   margin-bottom: 8px;
 }
 
-.name {
-  font-family: "Manrope", sans-serif;
+.name,
+.price {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
@@ -65,55 +71,50 @@
 }
 
 .model {
-  color: #3470ff;
-}
-
-.price {
-  font-family: "Manrope", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.25;
-  color: #101828;
+  color: #00aad4;
 }
 
 .details {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 4px;
-  margin-bottom: 28px;
+  padding: 8px 12px;
+  margin-bottom: 32px;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
 }
 
 .detail {
-  font-family: "Manrope", sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.33;
   color: #8d929a;
-  display: flex;
-  align-items: center;
 }
 
 .separator {
   color: #dadde1;
-  opacity: 0.7;
-  font-size: 10px;
-  font-weight: 300;
-  line-height: 16px;
-  stroke-width: 1px;
+  font-size: 12px;
+  line-height: 1.33;
 }
 
 .button {
   margin-top: auto;
-  width: 276px;
+  width: 244px;
   height: 44px;
   border: none;
   border-radius: 12px;
-  background-color: #3470ff;
+  background-color: #00aad4;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Manrope", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
   line-height: 1.25;
   color: #ffffff;
@@ -122,6 +123,7 @@
   transition: background-color 250ms ease;
 }
 
-.button:hover {
-  background-color: #0b44cd;
+.button:hover,
+.button:focus {
+  background-color: #0095ba;
 }

@@ -61,19 +61,28 @@ export default function CarCard({ car }: CarCardProps) {
         </div>
 
         <div className={styles.details}>
-          <span className={styles.detail}>{city}</span>
-          <span className={styles.separator}>|</span>
-          <span className={styles.detail}>{country}</span>
-          <span className={styles.separator}>|</span>
-          <span className={styles.detail}>{car.rentalCompany}</span>
-          <span className={styles.separator}>|</span>
-          <span className={styles.detail}>
-            {car.type.charAt(0) + car.type.slice(1).toLowerCase()}
-          </span>
-          <span className={styles.separator}>|</span>
-          <span className={styles.detail}>
-            {car.mileage.toLocaleString("en-US")} km
-          </span>
+          <div className={styles.row}>
+            <span className={styles.detail}>{city}</span>
+            <span className={styles.separator}>|</span>
+
+            <span className={styles.detail}>{country}</span>
+            <span className={styles.separator}>|</span>
+
+            <span className={styles.detail}>{car.rentalCompany}</span>
+          </div>
+
+          <div className={styles.row}>
+            <span className={styles.detail}>
+              {car.type.charAt(0).toUpperCase() +
+                car.type.slice(1).toLowerCase()}
+            </span>
+
+            <span className={styles.separator}>|</span>
+
+            <span className={styles.detail}>
+              {car.mileage.toLocaleString("en-US")} km
+            </span>
+          </div>
         </div>
 
         <Link

@@ -9,7 +9,7 @@ import FilterSelect from "@/components/FilterSelect/FilterSelect";
 
 import styles from "./CatalogPage.module.css";
 
-const priceOptions = ["30", "40", "50", "60", "70", "80"];
+const priceOptions = ["30", "40", "50", "60", "70", "80", "90", "100"];
 
 export default function CatalogPage() {
   const [brand, setBrand] = useState("");
@@ -67,6 +67,20 @@ export default function CatalogPage() {
     });
   };
 
+  const handleClearFilters = () => {
+    setBrand("");
+    setPrice("");
+    setMinMileage("");
+    setMaxMileage("");
+
+    setActiveFilters({
+      brand: "",
+      price: "",
+      minMileage: "",
+      maxMileage: "",
+    });
+  };
+
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -86,6 +100,7 @@ export default function CatalogPage() {
             value={brand}
             onChange={setBrand}
             width={204}
+            dropdownHeight={272}
           />
 
           <FilterSelect
@@ -95,6 +110,7 @@ export default function CatalogPage() {
             value={price}
             onChange={setPrice}
             width={196}
+            dropdownHeight={188}
           />
 
           <div className={styles.field}>
@@ -117,9 +133,19 @@ export default function CatalogPage() {
             </div>
           </div>
 
-          <button type="submit" className={styles.searchButton}>
-            Search
-          </button>
+          <div className={styles.actions}>
+            <button type="submit" className={styles.searchButton}>
+              Search
+            </button>
+
+            <button
+              type="button"
+              className={styles.clearButton}
+              onClick={handleClearFilters}
+            >
+              Clear filters
+            </button>
+          </div>
         </form>
 
         <ul className={styles.list}>

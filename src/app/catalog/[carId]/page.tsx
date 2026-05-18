@@ -8,6 +8,18 @@ type CarDetailsPageProps = {
   }>;
 };
 
+function formatType(type: string) {
+  return type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
+}
+
+function Icon({ name }: { name: string }) {
+  return (
+    <svg className={styles.icon}>
+      <use href={`/sprite.svg#${name}`} />
+    </svg>
+  );
+}
+
 export default async function CarDetailsPage({ params }: CarDetailsPageProps) {
   const { carId } = await params;
 
@@ -41,6 +53,7 @@ export default async function CarDetailsPage({ params }: CarDetailsPageProps) {
           </div>
 
           <p className={styles.location}>
+            <Icon name="icon-location" />
             {car.location.city}, {car.location.country}
           </p>
 
@@ -54,6 +67,7 @@ export default async function CarDetailsPage({ params }: CarDetailsPageProps) {
             <ul className={styles.list}>
               {conditions.map((item) => (
                 <li key={item} className={styles.item}>
+                  <Icon name="icon-check-circle" />
                   {item}
                 </li>
               ))}
@@ -64,17 +78,28 @@ export default async function CarDetailsPage({ params }: CarDetailsPageProps) {
             <h2 className={styles.sectionTitle}>Car Specifications:</h2>
 
             <ul className={styles.list}>
-              <li className={styles.item}>Year: {car.year}</li>
-
-              <li className={styles.item}>Type: {car.type}</li>
+              <li className={styles.item}>
+                <Icon name="icon-calendar" />
+                Year: {car.year}
+              </li>
 
               <li className={styles.item}>
+                <Icon name="icon-car" />
+                Type: {formatType(car.type)}
+              </li>
+
+              <li className={styles.item}>
+                <Icon name="icon-fuel" />
                 Fuel Consumption: {car.fuelConsumption}
               </li>
 
-              <li className={styles.item}>Engine: {car.engineSize}</li>
+              <li className={styles.item}>
+                <Icon name="icon-settings" />
+                Engine: {car.engine}
+              </li>
 
               <li className={styles.item}>
+                <Icon name="icon-mileage" />
                 Mileage: {car.mileage.toLocaleString("en-US")} km
               </li>
             </ul>
@@ -86,6 +111,7 @@ export default async function CarDetailsPage({ params }: CarDetailsPageProps) {
             <ul className={styles.list}>
               {features.map((item) => (
                 <li key={item} className={styles.item}>
+                  <Icon name="icon-check-circle" />
                   {item}
                 </li>
               ))}
